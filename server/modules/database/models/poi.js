@@ -1,0 +1,26 @@
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+
+
+var POISchema = new Schema({
+    name: {type: String, default: ''},
+    organitation: {type: Schema.Types.ObjectId, ref: 'Organization'},
+    radius: {type: Number, default: 0.0},
+    coordinates: [{latitude: Number, longitude: Number}],
+    rules: [{type: Schema.Types.ObjectId, ref: 'Rules'}],
+    status: {type: String, default: ''},
+    _createdAt: {type:Date, default: Date.now}
+});
+
+
+POISchema.path('name').validate(function(name){
+    return name.length;
+}, 'Name cannot be blank');
+
+
+POISchema.pre('save', function(next){
+   next();
+});
+
+
+mongoose.model('POI', POISchema);

@@ -1,12 +1,13 @@
-var mongoose = require('mongoose')
-    , Schema = mongoose.Schema
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 
 
 var DeviceGroupSchema = new Schema({
-    name : {type: String, default: ''},
-    orgId : {type: String, default: ''},
-    status : {type: String, default: ''},
-    _created_at:{type:Date, default:Date.now}
+    name: {type: String, default: ''},
+    orgId: {type: String, default: ''},
+    status: {type: String, default: ''},
+    devices: [{type: Schema.Types.ObjectId, ref: 'Device'}],
+    _createdAt: {type:Date, default: Date.now}
 });
 
 
