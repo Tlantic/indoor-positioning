@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/tracking',
+    db: 'http://localhost:9000/database',
     app: {
         name: 'MRSTraking',
         key: 'scrtPass!-pa-tlantic&'

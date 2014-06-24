@@ -6,7 +6,6 @@
 var express = require('express'),
     morgan = require('morgan'),
     compression = require('compression'),
-    bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
     cookieParser = require('cookie-parser'),
     errorHandler = require('errorhandler'),
@@ -15,7 +14,7 @@ var express = require('express'),
     util = require('./util'),
     consolidate = require('consolidate');
 
-module.exports = function(app, security, config) {
+module.exports = function(app, config) {
 
     app.set('showStackError', true);
 
@@ -49,12 +48,9 @@ module.exports = function(app, security, config) {
 
     // Request body parsing middleware should be above methodOverride
     app.use(expressValidator());
-    app.use(bodyParser());
     app.use(methodOverride());
 
-     app.use('/api/private', security({
-        secret: config.app.key
-    }));
+    
 
     var router = express.Router(); 
 
@@ -99,42 +95,6 @@ module.exports = function(app, security, config) {
     process.on('uncaughtException', function (err) {
         console.log(" UNCAUGHT EXCEPTION ");
         console.log("[Inside 'uncaughtException' event] " + err.stack || err.message);
-    });
-
-
-     // Enable jsonp
-    app.enable('jsonp callback');
-
-    app.use(function (req, res, next) {
-        var oneof = false;
-        if (req.headers.origin) {
-            res.header('Access-Control-Allow-Origin', req.headers.origin);
-            oneof = true;
-        }
-        if (req.headers['access-control-request-method']) {
-            res.header('Access-Control-Allow-Methods', req.headers['access-control-request-method']);
-            oneof = true;
-        }
-        if (req.headers['access-control-request-headers']) {
-            res.header('Access-Control-Allow-Headers', req.headers['access-control-request-headers']);
-            oneof = true;
-        }
-        if (oneof) {
-            res.header('Access-Control-Max-Age', 60 * 60 * 24 * 365);
-        }
-
-        // intercept OPTIONS method
-        if (oneof && req.method == 'OPTIONS') {
-            res.send(200);
-        }
-        else {
-            next();
-        }
-    });
-
-     app.use(function(req, res, next) {
-      res.contentType('application/json');
-      next();
     });
 
 

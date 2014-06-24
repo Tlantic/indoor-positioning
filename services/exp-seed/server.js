@@ -1,12 +1,10 @@
 'use strict';
 
-var mongoose = require('mongoose');
 
 // Initializing system variables
 var config = require('./config/config');
-var security=require('./modules/security/express.security');
 
-var app = require('./modules/base/main')(security, config);
+var app = require('./config/base/main')(config);
 
 
 app.listen(config.port, config.hostname);

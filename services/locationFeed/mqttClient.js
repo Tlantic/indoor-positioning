@@ -13,10 +13,10 @@ client.subscribe(config.mqtt.id);
 client.on('message', function(topic, message) {
   console.log(message);
   
-	request(config.endpoint, function (error, response, body) {
+/*	request(config.endpoint, function (error, response, body) {
 	  if (!error && response.statusCode == 200) {
 	    console.log(body) 
 	  }
-	});
+	});*/
 
 });
