@@ -1,11 +1,11 @@
 var mongoose = require('mongoose'),
-	DeviceGroup = mongoose.model('DeviceGroup');
+	Poi = mongoose.model('Poi');
 
 	
 function _save(data, success, error) {
 	try {
-		var device = new DeviceGroup(data);
-		device.save(function(err, dv) {
+		var poi = new Poi(data);
+		poi.save(function(err, dv) {
 			if (err) {
 				error(err);
 			}
@@ -18,7 +18,7 @@ function _save(data, success, error) {
 
 function _update(conditions, data, success, error) {
 	try{
-		DeviceGroup.update(conditions, data, { multi: true }, function (err, numberAffected, raw) {
+		Poi.update(conditions, data, { multi: true }, function (err, numberAffected, raw) {
 		  if (err) return error(err);
 		  success({
 		  	numberAffected: numberAffected,
@@ -33,7 +33,7 @@ function _update(conditions, data, success, error) {
 
 function _delete(conditions, success, error) {
 	try{
-		DeviceGroup.remove(conditions, function(err, numberAffected){
+		Poi.remove(conditions, function(err, numberAffected){
 			if(err)
 				error(err);
 			else
@@ -50,7 +50,7 @@ function _delete(conditions, success, error) {
 function _find(conditions, fields, options, success, error){
 	
 	try{
-		DeviceGroup.find(conditions, fields, options, function (err, docs) {
+		Poi.find(conditions, fields, options, function (err, docs) {
 			if(err)
 				error(err);
 			else

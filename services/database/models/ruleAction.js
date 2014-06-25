@@ -20,4 +20,4 @@ RulesActionsSchema.pre('save', function(next){
 });
 
 
-mongoose.model('RulesActions', RulesActionsSchema);
+mongoose.model('RuleAction', RulesActionsSchema);

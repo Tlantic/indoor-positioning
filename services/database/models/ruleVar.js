@@ -20,4 +20,4 @@ RulesVarsSchema.pre('save', function(next){
 });
 
 
-mongoose.model('RulesVars', RulesVarsSchema);
+mongoose.model('RuleVar', RulesVarsSchema);

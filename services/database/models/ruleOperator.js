@@ -24,4 +24,4 @@ RulesOperatorsSchema.pre('save', function(next){
 });
 
 
-mongoose.model('RulesOperators', RulesOperatorsSchema);
+mongoose.model('RuleOperator', RulesOperatorsSchema);

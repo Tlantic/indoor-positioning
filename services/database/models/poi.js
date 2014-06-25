@@ -23,4 +23,4 @@ POISchema.pre('save', function(next){
 });
 
 
-mongoose.model('POI', POISchema);
+mongoose.model('Poi', POISchema);

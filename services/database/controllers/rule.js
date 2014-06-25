@@ -1,22 +1,22 @@
-var DeviceGroup    = require('../dao/DeviceGroup');
+var Device    = require('../dao/Rule');
 
 exports.save = function(req, res, next) {
-    var device = req.body;
-    
-    DeviceGroup.save(device, function success(result){
-      res.json({
-          result:result
-      });
+   	var rule = req.body;
+   	
+   	Rule.save(rule, function success(result){
+   		res.json({
+	        result:result
+	    });
 
-    },function error(error){
-       res.status(400).send(error);
-    });    
+   	},function error(error){
+   		 res.status(400).send(error);
+   	});    
 };
 
 exports.update=function(req, res, next){
-  var conditions = req.body.conditions;
+	var conditions = req.body.conditions;
   var data = req.body.data;
-  DeviceGroup.update(conditions, data, function success(result){
+  Rule.update(conditions, data, function success(result){
       res.json({
           result:result
       });
@@ -24,12 +24,12 @@ exports.update=function(req, res, next){
     },function error(error){
        res.status(400).send(error);
     });
-  
+	
 };
 
 exports.delete=function(req, res, next){
   var conditions = req.body.conditions;
-  DeviceGroup.delete(conditions, function success(result){
+  Rule.delete(conditions, function success(result){
       res.json({
           result:result
       });
@@ -41,7 +41,7 @@ exports.delete=function(req, res, next){
 };
 
 exports.findById=function(req, res, next){
-    DeviceGroup.find({_id:req.params.id}, undefined, undefined, function success(result){
+    Rule.find({_id:req.params.id}, undefined, undefined, function success(result){
       res.json({
           result:result
       });
@@ -57,7 +57,7 @@ exports.find=function(req, res, next){
     var fields = req.body.fields;
     var options = req.body.options;
 
-    DeviceGroup.find(conditions, fields, options, function success(result){
+    Rule.find(conditions, fields, options, function success(result){
       res.send({
           result:result
       });

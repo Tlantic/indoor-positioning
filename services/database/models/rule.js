@@ -8,11 +8,11 @@ var RulesSchema = new Schema({
     organitation: {type: Schema.Types.ObjectId, ref: 'Organization'},
     priority: {type: Number, default: 0},
     restrictions: [{
-    	variable: {type: Schema.Types.ObjectId, ref: 'RulesVars'},
-    	operator: {type: Schema.Types.ObjectId, ref: 'RulesOperators'},
+    	variable: {type: Schema.Types.ObjectId, ref: 'RuleVars'},
+    	operator: {type: Schema.Types.ObjectId, ref: 'RuleOperators'},
     	value: {type: String, default: ''}
     }],
-    action: {type: Schema.Types.ObjectId, ref: 'RulesActions'},
+    action: {type: Schema.Types.ObjectId, ref: 'RuleActions'},
     status: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
 });
@@ -28,4 +28,4 @@ RulesSchema.pre('save', function(next){
 });
 
 
-mongoose.model('Rules', RulesSchema);
+mongoose.model('Rule', RulesSchema);
