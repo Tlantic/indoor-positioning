@@ -1,15 +1,14 @@
 var Device    = require('../dao/Device');
+var Response  = require('../config/response');
 
 exports.save = function(req, res, next) {
    	var device = req.body;
    	
    	Device.save(device, function success(result){
-   		res.json({
-	        result:result
-	    });
+   		res.json(new Response().success(result));
 
    	},function error(error){
-   		 res.status(400).send(error);
+   		 res.status(500).send(new Response().error(error));
    	});    
 };
 

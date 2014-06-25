@@ -6,7 +6,6 @@ var DeviceGroupSchema = new Schema({
     name: {type: String, default: ''},
     orgId: {type: String, default: ''},
     status: {type: String, default: ''},
-    devices: [{type: Schema.Types.ObjectId, ref: 'Device'}],
     _createdAt: {type:Date, default: Date.now}
 });
 

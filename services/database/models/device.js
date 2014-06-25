@@ -8,7 +8,7 @@ var DeviceSchema = new Schema({
     uuid: {type: String, default: ''},
     os: {type: String, default: ''},
     lastAccessDate: {type: String, default: ''},
-    group: {type: Schema.Types.ObjectId, ref: 'DeviceGroup'},
+    deviceGroup: {type: Schema.Types.ObjectId, ref: 'DeviceGroup'},
     status: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
 });
