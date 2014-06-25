@@ -1,0 +1,29 @@
+{
+    "name": "<=",
+    "code": "LESS_THAN_EQUAL",
+    "status": "A"
+}
+
+{
+	"name": ">=",
+    "code": "GREATER_THAN_EQUAL",
+    "status": "A"
+}
+
+{
+	"name": "<",
+    "code": "LESS_THAN",
+    "status": "A"
+}
+
+{
+	"name": "=",
+    "code": "EQUAL",
+    "status": "A"
+}
+
+{
+	"name": ">",
+    "code": "GREATER_THAN",
+    "status": "A"
+}

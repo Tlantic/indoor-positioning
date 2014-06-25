@@ -14,7 +14,7 @@ RulesOperatorsSchema.path('name').validate(function(name){
     return name.length;
 }, 'Name cannot be blank');
 
-RulesOperatorsSchema.path('code').validate(function(name){
+RulesOperatorsSchema.path('code').validate(function(code){
     return code.length;
 }, 'Code cannot be blank');
 
