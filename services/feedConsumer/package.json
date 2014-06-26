@@ -1,5 +1,5 @@
 {
-  "name": "LocationFeed",
+  "name": "FeedConsumer",
   "version": "0.0.1",
   "description": "mqtt feed subscribe",
   "main": "mqttClient.js",
@@ -10,8 +10,6 @@
   "license": "ISC",
   "dependencies": {
   	"mqtt":"0.3.9",
-    "request":"2.36.0",
-    "node-rest-client":"1.0.0",
     "amqplib":"0.2.0",
     "when":"3.2.3"
   }

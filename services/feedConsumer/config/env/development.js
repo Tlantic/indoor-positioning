@@ -12,7 +12,7 @@ module.exports = {
     },
 
     queue:{
-    	taskName:'action_queue',
+    	taskName:'output_action_queue',
     	url:'amqp://localhost'
     }
     

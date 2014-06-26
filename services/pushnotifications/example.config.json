@@ -1,0 +1,24 @@
+{
+    "webPort": 9002,
+
+    "mongodbUrl": "mongodb://localhost/notifications",
+
+    "gcm": {
+        "apiKey": "AIzaSyBT_TqjCQhswBYV-iciE_oAhpGnO1fiu6M"
+    },
+
+    "apn": {
+        "connection": {
+            "gateway": "gateway.sandbox.push.apple.com",
+            "cert": "/path/to/cert.pem",
+            "key": "/path/to/key.pem"
+        },
+        "feedback": {
+            "address": "feedback.sandbox.push.apple.com",
+            "cert": "/path/to/cert.pem",
+            "key": "/path/to/key.pem",
+            "interval": 43200,
+            "batchFeedback": true
+        }
+    }
+}

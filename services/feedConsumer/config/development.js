@@ -10,11 +10,7 @@ module.exports = {
 	    url:'5.9.153.213',
 	    id:'tlantic/poi/office'
     },
-
-    queue:{
-    	taskName:'action_queue',
-    	url:'amqp://localhost'
-    }
+    endpoint:'localhost'
     
 
 };
