@@ -1,0 +1,23 @@
+{
+    "setup": {
+        "endpoint": {
+            "host": "localhost",
+            "path": "/database/ruleVar",
+            "port": "9000",
+            "method": "POST"
+        },
+        "data": [{
+                "name": "Area - Navigation",
+                "group": "area",
+                "type": "",
+                "status": "A"
+            },
+            {
+                "name": "Area - Distance",
+                "group": "area",
+                "type": "",
+                "status": "A"
+            }
+        ]
+    }
+}

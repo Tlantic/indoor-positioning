@@ -1,0 +1,36 @@
+{
+    "setup": {
+        "endpoint": {
+            "host": "localhost",
+            "path": "/database/ruleOperator",
+            "port": "9000",
+            "method": "POST"
+        },
+        "data": [{
+                "name": "<=",
+                "code": "LESS_THAN_EQUAL",
+                "status": "A"
+            },
+            {
+                "name": ">=",
+                "code": "GREATER_THAN_EQUAL",
+                "status": "A"
+            },
+            {
+                "name": "<",
+                "code": "LESS_THAN",
+                "status": "A"
+            },
+            {
+                "name": "=",
+                "code": "EQUAL",
+                "status": "A"
+            },
+            {
+                "name": ">",
+                "code": "GREATER_THAN",
+                "status": "A"
+            }
+        ]
+    }
+}

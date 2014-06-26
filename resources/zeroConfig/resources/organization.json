@@ -1,0 +1,19 @@
+{
+    "setup": {
+        "endpoint": {
+            "host": "localhost",
+            "path": "/database/organization",
+            "port": "9000",
+            "method": "POST"
+        },
+        "data": [{
+                "name": "Tlantic TST 01",
+                "status": "A"
+            },
+            {
+                "name": "Tlantic TST 02",
+                "status": "A"
+            }
+        ]
+    }   
+}

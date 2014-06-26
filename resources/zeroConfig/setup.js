@@ -1,36 +1,19 @@
-var http = require('http');
 
-var loadFile = function(filePath) {
-	console.log('Starting', filePath);
+function loadActionFile(filePath) {
+	var module = require(filePath);
 
-	// Load raw file
-	var raw = require(filePath);
+	if (!module)
+		return;
 
-	// Load config
-	var httpOptions = {
-		hostname: raw.endpoint.host,
-		path: raw.endpoint.path,
-		port: raw.endpoint.port,
-		method: raw.endpoint.method,
-		headers: {'Content-Type': 'application/json'}
-	};
+	if (module.reset)
+		module.reset();
 
-	// Execute
-	if (raw.data.length > 0) {
-		for(var i = 0; i < raw.data.length; i++) {
-			try {
-				var req = http.request(httpOptions);
-				req.write(JSON.stringify(raw.data[i]));
-				req.end();
-			} catch (error) {
-				console.log('Error executing ', filePath, '#', error);
-			}
-		}
-	}
-
-	console.log('Executed', raw.data.length, 'instructions');
-
-	console.log('Exiting', filePath);
+	if (module.init)
+		module.init();
 }
 
-loadFile('./ruleOperators.json');
+loadActionFile('./_ruleActions.js');
+loadActionFile('./_ruleOperators.js');
+loadActionFile('./_ruleVars.js');
+loadActionFile('./_organization.js');
+loadActionFile('./_deviceGroups.js');

@@ -1,0 +1,31 @@
+{
+    "setup": {
+        "endpoint": {
+            "host": "localhost",
+            "path": "/database/deviceGroup",
+            "port": "9000",
+            "method": "POST"
+        },
+        "data": [{
+                "name": "General",
+                "organization": "Tlantic TST 01",
+                "status": "A"
+            },
+            {
+                "name": "Black List",
+                "organization": "Tlantic TST 01",
+                "status": "A"
+            },
+            {
+                "name": "General",
+                "organization": "Tlantic TST 02",
+                "status": "A"
+            },
+            {
+                "name": "Black List",
+                "organization": "Tlantic TST 02",
+                "status": "A"
+            }
+        ]
+    }
+}
