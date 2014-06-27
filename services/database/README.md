@@ -8,13 +8,14 @@ Provides an Rest API for data access
 http://localhost:9000/database/collectionName
 ```
 
-+ POST   [ Insert Data   ]
-+ PUT    [ Update Data   ]
-+ DELETE [ Delete Data   ]
-+ FIND   [ Retrieve Data ]
++ POST   for Insert Data   
++ PUT    for Update Data 
++ DELETE for Delete Data   
+
+Retrieve Data
 
 + FindById  GET  http://localhost:9000/database/collectionName/ID
-+ Find -> GET http://localhost:9000/database/collectionName
++ Find  POST http://localhost:9000/database/collectionName
 ```json
 {
 	"conditions":{ 
