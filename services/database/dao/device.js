@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
 	Device = mongoose.model('Device'),
-	DeviceDao    = require('../dao/DeviceGroup');
+	DeviceGroupDao    = require('../dao/DeviceGroup');
 
 
 function _save(data, success, error) {
@@ -9,9 +9,8 @@ function _save(data, success, error) {
 		if(!data.deviceGroup)
 			error('ERROR_DEVICE_GROUP_NOT_FOUND');
 		
-		DeviceDao.find({_id: data.deviceGroup}, undefined, undefined, function(result) {
-			console.log(result);
-
+		DeviceGroupDao.find({_id: data.deviceGroup}, undefined, undefined, function(result) {
+			
 			if(!result)
 				error('ERROR_DEVICE_GROUP_NOT_FOUND');
 			
@@ -21,7 +20,7 @@ function _save(data, success, error) {
 			
 			device.save(function(err, dv) {
 				if (err) {
-					error(err);
+					return error(err);
 				}
 				success(dv);
 			});

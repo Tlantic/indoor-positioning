@@ -8,22 +8,23 @@ var _data = {};
 
 function parseData(item) {
 	var deferred = Q.defer();
-
+	
     // Get organization ID
     client.post(
-    	'organization/find',
+    	'deviceGroup/find',
     	{
     		conditions: {
-    			name: item.organization
+    			name: item.deviceGroup
+    			//organization: item.deviceGroup_organization
     		}
     	},
     	function(err, res, body) {
 			if (body.data.length === 0) {
-				item.organization = '';
+				item.deviceGroup = '';
 				return;
 			}
 
-			item.organization = body.data[0]._id;
+			item.deviceGroup = body.data[0]._id;
 			deferred.resolve(item);
 		});
 
@@ -37,7 +38,7 @@ function submit() {
 exports.setup = function() {
 
 	// Get raw data
-	_data = require('./resources/deviceGroups.json');
+	_data = require('./resources/device.json');
 	_data = _data.setup;
 
 	// For each data to send, populate with correct values
@@ -56,5 +57,5 @@ exports.setup = function() {
 };
 
 exports.reset = function() {
-	simpleReset.run('resources/deviceGroups.json');	
+	simpleReset.run('resources/device.json');	
 };

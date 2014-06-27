@@ -1,19 +1,52 @@
+var Q = require('q');
 
 function loadActionFile(filePath) {
+	console.log('');
+	console.log('------', 'Processing', filePath);
+
 	var module = require(filePath);
 
 	if (!module)
 		return;
 
-	if (module.reset)
-		module.reset();
+	var reset = function() {
+		if (!module.reset)
+			return;
+		console.log('-----', 'Reset', filePath);
+		return module.reset();
+	};
 
-	if (module.init)
-		module.init();
+	var setup = function() {
+		if (!module.setup)
+			return;
+		console.log('-----', 'Setup', filePath);
+		return module.setup();
+	};
+
+	reset();
+	setup();
 }
 
-loadActionFile('./_ruleActions.js');
-loadActionFile('./_ruleOperators.js');
-loadActionFile('./_ruleVars.js');
-loadActionFile('./_organization.js');
-loadActionFile('./_deviceGroups.js');
+setTimeout(function() {
+	loadActionFile('./_ruleActions.js');
+}, 0);
+
+setTimeout(function() {
+	loadActionFile('./_ruleOperators.js');
+}, 1000);
+setTimeout(function() {
+	loadActionFile('./_ruleVars.js');
+}, 2000);
+setTimeout(function() {
+	loadActionFile('./_organization.js');
+}, 3000);
+setTimeout(function() {
+	loadActionFile('./_deviceGroups.js');
+}, 4000);
+setTimeout(function() {
+	loadActionFile('./_device.js');
+}, 5000);
+
+
+
+

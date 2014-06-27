@@ -7,7 +7,7 @@ function _save(data, success, error) {
 		var rOper = new RuleOperator(data);
 		rOper.save(function(err, dv) {
 			if (err) {
-				error(err);
+				return error(err);
 			}
 			success(dv);
 		});

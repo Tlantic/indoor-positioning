@@ -1,5 +1,5 @@
-var DeviceGroup    = require('../dao/DeviceGroup');
-var Response  = require('../config/response');
+var DeviceGroup = require('../dao/DeviceGroup'),
+    Response = require('../config/response');
 
 exports.save = function(req, res, next) {
     var device = req.body;

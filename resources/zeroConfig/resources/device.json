@@ -1,0 +1,29 @@
+{
+    "reset": {
+        "endpoint": {
+            "host": "localhost",
+            "path": "/database/device",
+            "port": "9000",
+            "method": "DELETE"
+        }
+    },
+    "setup": {
+        "endpoint": {
+            "host": "localhost",
+            "path": "/database/device",
+            "port": "9000",
+            "method": "POST"
+        },
+        "data": [{
+                "name": "Samsung Testes Tlantic 01",
+                "macAddr": "",
+                "uuid": "",
+                "os": "Android 4.4.2",
+                "lastAccessDate": "",
+                "deviceGroup": "General",
+                "deviceGroup_organization": "Tlantic TST 01",
+                "status": "A"
+            }
+        ]
+    }
+}

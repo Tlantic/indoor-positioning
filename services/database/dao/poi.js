@@ -7,7 +7,7 @@ function _save(data, success, error) {
 		var poi = new Poi(data);
 		poi.save(function(err, dv) {
 			if (err) {
-				error(err);
+				return error(err);
 			}
 			success(dv);
 		});

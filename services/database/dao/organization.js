@@ -7,7 +7,7 @@ function _save(data, success, error) {
 		var org = new Organization(data);
 		org.save(function(err, dv) {
 			if (err) {
-				error(err);
+				return error(err);
 			}
 			success(dv);
 		});

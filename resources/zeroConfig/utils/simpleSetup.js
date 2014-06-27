@@ -1,18 +1,18 @@
 var http = require('http');
 
 var loadFile = function(filePath) {
-	console.log('------', 'Loading file content', filePath);
+	console.log('simpleSetup:', 'Loading file content', filePath);
 
 	// Load raw file
 	var raw = require('../' + filePath);
 
 	executeContent(raw.setup);
 
-	console.log('------', 'done', filePath);
+	console.log('simpleSetup:', 'Done');
 }
 
 var executeContent = function(raw) {
-	console.log('------', 'Processing content');
+	console.log('simpleSetup:', 'Processing content');
 
 	// Load config
 	var httpOptions = {
@@ -23,7 +23,7 @@ var executeContent = function(raw) {
 		headers: {'Content-Type': 'application/json'}
 	};
 
-	console.log('Submiting to', httpOptions.hostname + httpOptions.path);
+	console.log('simpleSetup:', 'Submiting to', httpOptions.hostname + httpOptions.path);
 
 	// Execute
 	if (raw.data.length > 0) {
@@ -38,7 +38,7 @@ var executeContent = function(raw) {
 		}
 	}
 
-	console.log('Executed', raw.data.length, 'instructions');
+	console.log('simpleSetup:', 'Executed', raw.data.length, 'instructions');
 
 };
 

@@ -7,7 +7,7 @@ function _save(data, success, error) {
 		var rVar = new RuleVar(data);
 		rVar.save(function(err, dv) {
 			if (err) {
-				error(err);
+				return error(err);
 			}
 			success(dv);
 		});

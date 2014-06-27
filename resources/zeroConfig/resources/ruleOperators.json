@@ -1,4 +1,12 @@
 {
+    "reset": {
+        "endpoint": {
+            "host": "localhost",
+            "path": "/database/ruleOperator",
+            "port": "9000",
+            "method": "DELETE"
+        }
+    },
     "setup": {
         "endpoint": {
             "host": "localhost",
