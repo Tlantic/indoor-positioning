@@ -2,17 +2,18 @@
 
 Provides an Rest API for data access
 
-[example] 
+```shell
 http://localhost:9000/database/collectionName
+```
 
-1. POST -> Insert Data
-2. PUT  -> Update Data
-3. DELETE -> Delete Data
++ POST -> Insert Data
++ PUT  -> Update Data
++ DELETE -> Delete Data
 
-4. FindById -> GET  http://localhost:9000/database/collectionName/ID
++ FindById -> GET  http://localhost:9000/database/collectionName/ID
 
-5. Find -> GET http://localhost:9000/database/collectionName
-
++ Find -> GET http://localhost:9000/database/collectionName
+```json
 {
 	conditions:{ 
 		"_id":"1234",
@@ -21,4 +22,4 @@ http://localhost:9000/database/collectionName
 	fields:"name address",
 	options:{}
 }
-
+```
