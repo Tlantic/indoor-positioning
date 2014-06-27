@@ -1,6 +1,6 @@
 # Database Project
 
-Provides an Rest API for data access
+Provides an Rest API and an Message Queue for data access
 
 #### Api 
 
