@@ -8,10 +8,10 @@ Provides an api for manipulating queues
 ```js
 	  Rabbit Queue Consumer
     
-    @method queueConsumer
-    @param options {Object} queue options
-    @param action {Function} queue consumer action
-    @returns null
+    method queueConsumer
+    param options {Object} queue options
+    param action {Function} queue consumer action
+    returns null
 
     options = {
 		url:'',
@@ -34,7 +34,7 @@ Provides an api for manipulating queues
     @param error {Function} error send message
     @returns null
     
-``
+```
 
 
 #### Adapters
