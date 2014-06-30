@@ -1,5 +1,5 @@
 {
-  "name": "TlanticQueue",
+  "name": "tlantic-queue",
   "version": "0.0.1",
   "description": "RabbitMQ Abstract",
   "main": "index.js",
