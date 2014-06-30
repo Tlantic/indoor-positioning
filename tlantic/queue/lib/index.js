@@ -20,7 +20,7 @@ var internals = {};
 	}
 **/
 exports.queueConsumer = function(options, action) {
-	console.log(options);
+
 	amqp.connect(options.url).then(function(conn) {
 
 		process.once('SIGINT', function() {
@@ -30,7 +30,7 @@ exports.queueConsumer = function(options, action) {
 			var ok = ch.assertQueue(options.queue, {
 				durable: options.durable || true
 			});
-			console.log(ok);
+			
 			ok = ok.then(function() {
 				ch.prefetch(1);
 			});
