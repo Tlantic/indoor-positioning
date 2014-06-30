@@ -5,7 +5,7 @@ Provides an api for manipulating queues
 #### Methods
 
 + queueConsumer
-```json
+```js
 	  Rabbit Queue Consumer
     
     @method queueConsumer
@@ -20,10 +20,10 @@ Provides an api for manipulating queues
 		durable: true||false
 	}
 
-``
+```
 + queueSendToExchanger
 
-```json
+```js
 	Rabbit Send Message to exchanger
     
     @method queueConsumer
