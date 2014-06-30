@@ -26,15 +26,22 @@ Provides an api for manipulating queues
 ```js
 	Rabbit Send Message to exchanger
     
-    @method queueConsumer
-    @param msg {Object} queue options
-    @param key {String} queue route key
-    @param options {Object} queue options
-    @param success {Function} success send message
-    @param error {Function} error send message
-    @returns null
+    method queueConsumer
+    param msg {Object} queue options
+    param key {String} queue route key
+    param options {Object} queue options
+    param success {Function} success send message
+    param error {Function} error send message
+    returns null
+
+    options = {
+		key: '',
+		exchanger:'',
+		url: ''
+	}
+
     
-```
+``
 
 
 #### Adapters
