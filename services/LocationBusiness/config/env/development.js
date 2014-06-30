@@ -31,6 +31,11 @@ module.exports = {
     },
     push:{
     	url:'http://localhost:9002/send'
+    },
+
+    types:{
+        PUSH_NOTIFICATIONS:'pushnotifications',
+        EMAIL:'email'
     }
     
 

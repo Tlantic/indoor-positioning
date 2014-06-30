@@ -1,11 +1,12 @@
 var mqtt = require('mqtt');
 var config = require('../config/config');
-//var rules = require('./rules');
-var sender =  require('./sender');
+var tlanticQueue = require('tlantic-queue');
 
 exports.init = function(){
 
-	var obj = {
+	console.log(tlanticQueue);
+
+	var obj = {	
 		username: config.mqtt.user.username,
 		password: config.mqtt.user.password
 	};
@@ -18,8 +19,26 @@ exports.init = function(){
 		var resp = JSON.parse(message);
 		//rules.manager(resp);
 		
-	
-		sender.sendMsgToQueue("_"+id);
+		var respMsg = {
+			id:id,
+			mac:'12:11:22:11',
+			area:'A1',
+			diraction:'in',
+			timestamp:'111111'
+		}
+
+		var options = {
+			key: config.queue.key,
+			exchanger:config.queue.exchange,
+			url: config.queue.url
+		}
+
+		tlanticQueue.queueSendToExchanger(JSON.stringify(respMsg), options,
+			function success(){
+				console.log('ok');
+			}, function error(){
+				console.log('error');
+			});
 
 	});
 

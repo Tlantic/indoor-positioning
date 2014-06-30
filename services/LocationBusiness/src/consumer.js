@@ -2,9 +2,37 @@ var amqp = require('amqplib');
 var basename = require('path').basename;
 var all = require('when').all;
 var config = require('../config/config');
-var sender = require('./sender');
+var areaBssRules = require('./areaBssRules');
+var tlanticQueue = require('tlantic-queue');
 
 exports.queueConsumer = function(queueName) {
+
+	var options = {
+		url: config.queue.url,
+		queue: queueName,
+		noAck: false,
+		durable: true
+	};
+
+	function doWork(msg, ch) {
+		var mych = ch,
+			mymsg = msg;
+		var body = JSON.parse(msg.content.toString());
+		console.log(" [x] Received '%s'", body.id);
+
+		areaBssRules.resolveMsg(body, function success() {
+			console.log('aaa');
+			mych.ack(mymsg);
+		}, function error(e) {
+			console.log(e);
+		});
+
+	}
+
+	tlanticQueue.queueConsumer(options, doWork);
+}
+
+/*exports.queueConsumer = function(queueName) {
 	amqp.connect(config.queue.url).then(function(conn) {
 		process.once('SIGINT', function() {
 			conn.close();
@@ -25,18 +53,15 @@ exports.queueConsumer = function(queueName) {
 			return ok;
 
 			function doWork(msg) {
-				var body = msg.content.toString();
-				console.log(" [x] Received '%s'", body);
+				var body = JSON.parse(msg.content.toString());
+				console.log(" [x] Received '%s'", body.id);
 				
-				sender.sendActionToQueue(body, config.outputQueue.routes[0].key, function success(){
+				areaBssRules.resolveMsg(body, function success(){
 					ch.ack(msg);
 				}, function error(e){
 					console.log(e);
 				});
-				/*setTimeout(function() {
-					console.log(" [x] Done");
-					ch.ack(msg);
-				}, 4 * 1000);*/
+				
 			}
 
 
@@ -44,4 +69,4 @@ exports.queueConsumer = function(queueName) {
 		});
 	}).then(null, console.warn);
 
-}
+}*/
