@@ -1,17 +1,20 @@
-var sender = require('./sender');
 var config = require('../config/config');
+var tlanticQueue = require('tlantic-queue');
 
 exports.resolveMsg = function(data, success, error) {
-	
-	var sendMsg;
-	console.log(data);
-	success();
-	/*sender.sendActionToQueue(sendMsg, config.outputQueue.routes[0].key, function() {
-		success();
-	}, function(e) {
-		error();
-	});*/
+
+	var options = {
+		key: config.outputQueue.routes[0].key,
+		exchanger: config.outputQueue.exchange,
+		url: config.outputQueue.url
+	};
+
+	tlanticQueue.queueSendToExchanger(JSON.stringify(data), options,
+		function fsuccess() {
+			success();
+		}, function ferro(e) {
+			error(e);
+		});
 
 
 }
-

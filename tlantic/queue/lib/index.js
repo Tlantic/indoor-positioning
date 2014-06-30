@@ -69,7 +69,7 @@ exports.queueSendToExchanger = function(msg, options, success, error) {
 			try {
 				ch.publish(options.exchanger, options.key, new Buffer(msg));
 				//console.log(" [x] Sent %s,  %s: %s ", options.exchanger, options.key, msg);
-			} catch (e) {
+			} catch(e) {
 				err = e;
 			}
 
@@ -78,7 +78,7 @@ exports.queueSendToExchanger = function(msg, options, success, error) {
 		})).ensure(function() {
 			conn.close();
 			if (err)
-				error(e);
+				error(err);
 			else
 				success();
 		})

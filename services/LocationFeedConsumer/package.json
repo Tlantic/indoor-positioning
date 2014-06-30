@@ -9,8 +9,6 @@
   "author": "Andre Pinto",
   "license": "ISC",
   "dependencies": {
-  	"mqtt":"0.3.9",
-    "amqplib":"0.2.0",
-    "when":"3.2.3"
+  	"mqtt":"0.3.9"
   }
 }

@@ -3,9 +3,7 @@ var config = require('../config/config');
 var tlanticQueue = require('tlantic-queue');
 
 exports.init = function(){
-
-	console.log(tlanticQueue);
-
+	
 	var obj = {	
 		username: config.mqtt.user.username,
 		password: config.mqtt.user.password
