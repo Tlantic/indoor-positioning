@@ -9,6 +9,7 @@
   "keywords": [
     "RabbitMQ"
   ],
+  "private": true, 
   "author": "Andre Pinto",
   "license": "MIT",
   "dependencies": {
