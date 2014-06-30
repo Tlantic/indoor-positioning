@@ -1,10 +1,9 @@
 var mqtt = require('mqtt');
 var config = require('../config/config');
-var rules = require('./rules');
+//var rules = require('./rules');
+var sender =  require('./sender');
 
 exports.init = function(){
-
-	//rules.manager({direction:'in'});
 
 	var obj = {
 		username: config.mqtt.user.username,
@@ -12,12 +11,16 @@ exports.init = function(){
 	};
 
 	var client = mqtt.createClient(config.mqtt.port, config.mqtt.url, obj);
-
+	var id=0;
 	client.subscribe(config.mqtt.id);
 	client.on('message', function(topic, message) {
-		
+		id++;
 		var resp = JSON.parse(message);
-		rules.manager(resp);
+		//rules.manager(resp);
+		
+	
+		sender.sendMsgToQueue("_"+id);
+
 	});
 
 }
