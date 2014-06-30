@@ -6,7 +6,7 @@ Provides an api for manipulating queues
 
 + queueConsumer
 ```js
-	  Rabbit Queue Consumer
+	Rabbit Queue Consumer
     
     method queueConsumer
     param options {Object} queue options
@@ -41,7 +41,7 @@ Provides an api for manipulating queues
 	}
 
     
-``
+```
 
 
 #### Adapters
