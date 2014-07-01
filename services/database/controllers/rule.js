@@ -1,4 +1,4 @@
-var Device = require('../dao/Rule'),
+var Rule = require('../dao/Rule'),
     Response = require('../config/response');
 
 exports.save = function(req, res, next) {
