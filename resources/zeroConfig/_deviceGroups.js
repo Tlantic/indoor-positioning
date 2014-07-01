@@ -9,23 +9,32 @@ var _data = {};
 function parseData(item) {
 	var deferred = Q.defer();
 
-    // Get organization ID
-    client.post(
-    	'organization/find',
-    	{
-    		conditions: {
-    			name: item.organization
-    		}
-    	},
-    	function(err, res, body) {
-			if (body.data.length === 0) {
-				item.organization = '';
-				return;
-			}
+    var getOrganization = function() {
+    	var deferred = Q.defer();
+    	client.post(
+	    	'organization/find',
+	    	{
+	    		conditions: {
+	    			name: item.organization
+	    		}
+	    	},
+	    	function(err, res, body) {
+				if (body.data.length === 0) {
+					item.organization = '';
+					deferred.reject();;
+				}
 
-			item.organization = body.data[0]._id;
-			deferred.resolve(item);
-		});
+				item.organization = body.data[0]._id;
+				deferred.resolve(item);
+			});
+    	return deferred.promise;
+    };
+
+    Q.all([
+    	getOrganization()
+    ]).then(function() {
+    	deferred.resolve();
+    });
 
     return deferred.promise;
 }

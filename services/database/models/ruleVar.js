@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 var RulesVarsSchema = new Schema({
     name: {type: String, default: ''},
     group: {type: String, default: ''},
-    type: {type: String, default: ''},
+    type: {type: String, enum: ['area', 'poi'], default: ''},
     status: {type: String, default: ''},
     code: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}

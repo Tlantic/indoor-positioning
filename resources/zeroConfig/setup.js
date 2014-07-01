@@ -46,6 +46,9 @@ setTimeout(function() {
 setTimeout(function() {
 	loadActionFile('./_device.js');
 }, 5000);
+setTimeout(function() {
+	loadActionFile('./_rule.js');
+}, 6000);
 
 
 

@@ -17,13 +17,25 @@
         "data": [{
                 "name": "Area - Navigation",
                 "group": "area",
-                "type": "",
+                "type": "area",
                 "status": "A"
             },
             {
                 "name": "Area - Distance",
                 "group": "area",
-                "type": "",
+                "type": "area",
+                "status": "A"
+            },
+            {
+                "name": "POI - Distance",
+                "group": "poi",
+                "type": "poi",
+                "status": "A"
+            },
+            {
+                "name": "Area - Name",
+                "group": "poi",
+                "type": "poi",
                 "status": "A"
             }
         ]

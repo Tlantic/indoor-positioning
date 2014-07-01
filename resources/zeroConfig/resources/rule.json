@@ -1,0 +1,47 @@
+{
+    "reset": {
+        "endpoint": {
+            "host": "localhost",
+            "path": "/database/rule",
+            "port": "9000",
+            "method": "DELETE"
+        }
+    },
+    "setup": {
+        "endpoint": {
+            "host": "localhost",
+            "path": "/database/device",
+            "port": "9000",
+            "method": "POST"
+        },
+        "data": [{
+                "name": "On enter in zone",
+                "type": "area",
+                "description": "Send a message when enter in area",
+                "organitation": "Tlantic TST 01",
+                "priority": 0,
+                "restrictions": [{
+                    "variable": "Area - Navigation",
+                    "operator": "EQUAL",
+                    "value": "in"
+                }],
+                "action": "SEND_PUSH_WELCOME",
+                "status": "A"
+            },
+            {
+                "name": "On exit from zone",
+                "type": "area",
+                "description": "Send a message when exit from area",
+                "organitation": "Tlantic TST 01",
+                "priority": 0,
+                "restrictions": [{
+                    "variable": "Area - Navigation",
+                    "operator": "EQUAL",
+                    "value": "out"
+                }],
+                "action": "SEND_PUSH_GOODBYE",
+                "status": "A"
+            }
+        ]
+    }
+}
