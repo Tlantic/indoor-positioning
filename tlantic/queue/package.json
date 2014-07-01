@@ -1,15 +1,18 @@
 {
-  "name": "FeedConsumer",
+  "name": "tlantic-queue",
   "version": "0.0.1",
-  "description": "mqtt feed subscribe",
-  "main": "mqttClient.js",
+  "description": "RabbitMQ Abstract",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "RabbitMQ"
+  ],
+  "private": true, 
   "author": "Andre Pinto",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-  	"mqtt":"0.3.9",
     "amqplib":"0.2.0",
     "when":"3.2.3"
   }

@@ -9,8 +9,6 @@
   "author": "Andre Pinto",
   "license": "ISC",
   "dependencies": {
-    "amqplib":"0.2.0",
-    "when":"3.2.3",
     "node-rest-client":"1.0.0"
   }
 }
