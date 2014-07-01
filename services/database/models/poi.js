@@ -9,6 +9,7 @@ var POISchema = new Schema({
     coordinates: [{latitude: Number, longitude: Number}],
     rules: [{type: Schema.Types.ObjectId, ref: 'Rules'}],
     status: {type: String, default: ''},
+    code: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
 });
 

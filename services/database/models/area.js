@@ -4,10 +4,11 @@ var mongoose = require('mongoose'),
 
 var AreaSchema = new Schema({
     name: {type: String, default: ''},
+    description: {type: String, default: ''},
     organitation: {type: Schema.Types.ObjectId, ref: 'Organization'},
-    poi: [{type: Schema.Types.ObjectId, ref: 'POI'}],
-    rules: [{type: Schema.Types.ObjectId, ref: 'Rules'}],
+    points: [{x: Number, y: Number}],
     status: {type: String, default: ''},
+    code: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
 });
 

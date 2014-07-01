@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-	Area = mongoose.model('RuleVar');
+	RuleVar = mongoose.model('RuleVar');
 
 	
 function _save(data, success, error) {

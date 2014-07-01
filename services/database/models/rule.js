@@ -8,12 +8,14 @@ var RulesSchema = new Schema({
     organitation: {type: Schema.Types.ObjectId, ref: 'Organization'},
     priority: {type: Number, default: 0},
     restrictions: [{
-    	variable: {type: Schema.Types.ObjectId, ref: 'RuleVars'},
-    	operator: {type: Schema.Types.ObjectId, ref: 'RuleOperators'},
+    	variable: {type: Schema.Types.ObjectId, ref: 'RuleVar'},
+    	operator: {type: Schema.Types.ObjectId, ref: 'RuleOperator'},
     	value: {type: String, default: ''}
     }],
-    action: {type: Schema.Types.ObjectId, ref: 'RuleActions'},
+    action: {type: Schema.Types.ObjectId, ref: 'RuleAction'},
     status: {type: String, default: ''},
+    attachType: {type: String, default: ''},
+    attachCode: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
 });
 

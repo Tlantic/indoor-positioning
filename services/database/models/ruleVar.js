@@ -7,6 +7,7 @@ var RulesVarsSchema = new Schema({
     group: {type: String, default: ''},
     type: {type: String, default: ''},
     status: {type: String, default: ''},
+    code: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
 });
 

@@ -1,4 +1,4 @@
-var Device = require('../dao/Rule'),
+var Rule = require('../dao/Rule'),
     Response = require('../config/response');
 
 exports.save = function(req, res, next) {
@@ -59,3 +59,14 @@ exports.find = function(req, res, next) {
         res.status(400).send(new Response().error(error));
     });
 };
+
+exports.addRestrictions = function(req, res){
+    var data = req.body;
+
+    Rule.addRestrictions(data.id, data.ruleVarCode, data.ruleOperatorCode, data.value,function success(result) {
+        res.json(new Response().success(result));
+
+    }, function error(error) {
+        res.status(400).send(new Response().error(error));
+    });
+}

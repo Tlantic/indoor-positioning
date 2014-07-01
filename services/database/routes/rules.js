@@ -19,5 +19,8 @@ module.exports = function(r) {
     r.route('/rule/find')
         .post(rule.find);
 
+    r.route('/rule/addRestrictions')
+        .post(rule.addRestrictions);
+
     
 }
