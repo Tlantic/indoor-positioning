@@ -10,7 +10,8 @@ var defaultType = 'AREA'
 	activeState = 'A';
 
 
-exports.resolveMsg = function(data, success, error) {
+exports.resolveMsg = function(data) {
+	var d = when.defer();
 
 	var conditions= {
 		organitation: "53b2c57684c1ef0c0f4621e6",
@@ -37,20 +38,20 @@ exports.resolveMsg = function(data, success, error) {
 			var device = {
 				mac:data.mac
 			};
-
-			actions.resolve(rule.action, rule.actionData, device).then(function(result){
-				console.log(result);
+		
+			actions.resolve(rule, device).then(function(result){
+				d.resolve(result);
 			}).catch(function(error){
-				console.log(error);
+				d.reject(error);
 			});
 		}
 		
 	}).
 	catch (function handleError(e) {
-		error(e);
+		d.reject(e);
 	});
 
-
+	return d.promise;
 
 }
 

@@ -28,6 +28,14 @@ module.exports = {
     			queue:'tlantic_email_queue'
     		}
     	]
+    },
+    push:{
+    	url:'http://localhost:9002/send'
+    },
+
+    types:{
+        PUSH_NOTIFICATIONS:'pushnotifications',
+        EMAIL:'email'
     }
     
 

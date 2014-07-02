@@ -1,15 +1,16 @@
 var	when = require('when'),
 	db 	 = require('tlantic-db'),
 	tlanticQueue = require('tlantic-queue'),
-	config = require('../../config/config');
+	config = require('../../config/config'),
+	Rest = require('node-rest-client').Client,
+	_ = require('lodash');
 
 
-exports.resolve = function(data){
+exports.resolve = function(device, rule){
 	var d = when.defer();
-	
 
 	var conditions ={
-		macAddr:data.mac
+		macAddr:device.mac
 	}
 
 	db.find('device', conditions).then(function(result) {
@@ -19,7 +20,8 @@ exports.resolve = function(data){
 		else
 			device = result[0];
 
-		var message = _createMessageBody(device.name, data.actionData.message, device.os);
+		
+		var message = _createMessageBody(device.name, rule.actionParams, device.os);
 
 		if(!message)
 			d.reject('ERROR_ON_CREATE_PUSH_MESSAGE');
@@ -33,6 +35,7 @@ exports.resolve = function(data){
 
 		tlanticQueue.queueSendToExchanger(JSON.stringify(message), options,
 			function success(){
+				console.log('SET PUSH MESSAGES IN QUEUE');
 				d.resolve(message);
 			}, function error(e){
 				d.reject(error);
@@ -48,15 +51,15 @@ exports.resolve = function(data){
 	return d.promise;
 }
 
-_createMessageBody = function(sendTo, message, platform) {
-	console.log(platform);
+_createMessageBody = function(sendTo, params, platform) {
+	
 	if (platform === 'ANDROID') {
 		return {
 			users: [sendTo],
 			android: {
 				collapseKey: 'optional',
 				data: {
-					message: message
+					message: _.where(params, { 'code': 'MESSAGE' })[0].value
 				}
 			}
 		}
@@ -67,7 +70,7 @@ _createMessageBody = function(sendTo, message, platform) {
 			users: [sendTo],
 			ios: {
 				badge: 0,
-				alert: message,
+				alert: _.where(params, { 'code': 'MESSAGE' })[0].value,
 				sound: "soundName"
 			}
 		}
@@ -78,15 +81,15 @@ _createMessageBody = function(sendTo, message, platform) {
 }
 
 
-exports.send= function(data, success){
-
-	/*var rest = new Rest();
+exports.send= function(data){
+	var d = when.defer();
+	var rest = new Rest();
 
 	console.log(data);
 
 	rest.post(config.push.url, data, function(msg, response) {
-		console.log(msg);
-		success();
-	});*/
+		d.resolve('PUSH SEND');
+	});
 
+	return d.promise;
 }
