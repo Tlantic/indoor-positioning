@@ -21,7 +21,7 @@ exports.init = function(){
 			id:id,
 			mac:'12:11:22:11',
 			area:'A1',
-			diraction:'in',
+			direction:'in',
 			timestamp:'111111'
 		}
 

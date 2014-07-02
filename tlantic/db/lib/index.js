@@ -16,7 +16,6 @@ internals.request = function(connection, options, callback, error){
 	try{
 
     var reqUrl = url.parse(connection);
-    console.log(reqUrl);
  
     // http.request settings
     var settings = {
