@@ -1,16 +1,27 @@
-var when = require('when');
+var when = require('when'),
+	pushnotificationAction = require('./pushnotifications');
+
 
 var PUSH_NOTIFICATION = 'SEND_PUSH_NOTIFICATION';
 
-exports.resolve = function(action, data){
+exports.resolve = function(action, data, device){
 	var d = when.defer();
-	console.log(action);
-	console.log(data);
 
-	if(action.code === PUSH_NOTIFICATION)
-		d.resolve('put in queue');
+	var dataToResolve = {
+		actionData:data,
+		device:device
+	};
+
+	if(action.code === PUSH_NOTIFICATION){
+		pushnotificationAction.resolve(dataToResolve).then(function(data){
+			d.resolve(data);
+		}).catch(function(error){
+			d.reject('ERROR_ON_RESOLVE_PUSH_NOTIFICATION');
+		});
+		
+	}
 	else
-		d.reject('');
+		d.reject('ACTION_TYPE_NOT_FOUND');
 
 	return d.promise;
 }

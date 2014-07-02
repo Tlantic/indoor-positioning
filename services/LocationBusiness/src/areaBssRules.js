@@ -34,7 +34,11 @@ exports.resolveMsg = function(data, success, error) {
 				}
 			}
 			
-			actions.resolve(rule.action, rule.actionData).then(function(result){
+			var device = {
+				mac:data.mac
+			};
+
+			actions.resolve(rule.action, rule.actionData, device).then(function(result){
 				console.log(result);
 			}).catch(function(error){
 				console.log(error);
