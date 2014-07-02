@@ -17,7 +17,8 @@ var RulesSchema = new Schema({
     status: {type: String, default: ''},
     attachType: {type: String, default: ''},
     attachCode: {type: String, default: ''},
-    _createdAt: {type:Date, default: Date.now}
+    _createdAt: {type:Date, default: Date.now},
+    actionData: {type:String, default: ''}
 });
 
 

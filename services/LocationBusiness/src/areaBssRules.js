@@ -34,7 +34,7 @@ exports.resolveMsg = function(data, success, error) {
 				}
 			}
 			
-			actions.resolve(rule.action).then(function(result){
+			actions.resolve(rule.action, rule.actionData).then(function(result){
 				console.log(result);
 			}).catch(function(error){
 				console.log(error);
