@@ -34,9 +34,9 @@ exports.resolveMsg = function(data) {
 					break;
 				}
 			}
-			
+			console.log(data);
 			var device = {
-				mac:data.dev
+				mac:data.device
 			};
 		
 			actions.resolve(rule, device).then(function(result){
