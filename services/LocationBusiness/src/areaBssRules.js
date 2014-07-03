@@ -36,7 +36,7 @@ exports.resolveMsg = function(data) {
 			}
 			
 			var device = {
-				mac:data.mac
+				mac:data.dev
 			};
 		
 			actions.resolve(rule, device).then(function(result){

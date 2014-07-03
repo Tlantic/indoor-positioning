@@ -17,13 +17,14 @@ exports.init = function(){
 		var resp = JSON.parse(message);
 		//rules.manager(resp);
 		
-		var respMsg = {
+		/*var respMsg = {
 			id:id,
 			mac:'12:11:22:11',
 			area:'A1',
 			direction:'in',
 			timestamp:'111111'
-		}
+		}*/
+		var respMsg = resp;
 
 		var options = {
 			key: config.queue.key,

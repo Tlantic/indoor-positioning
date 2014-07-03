@@ -50,6 +50,7 @@ app.post('/unsubscribe', function (req, res) {
 app.post('/send', function (req, res) {
     var notifs = [req.body];
 
+    console.log(notifs);
     var notificationsValid = sendNotifications(notifs);
 
     res.status(notificationsValid ? 200 : 400).send();

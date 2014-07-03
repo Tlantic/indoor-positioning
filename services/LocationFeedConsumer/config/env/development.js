@@ -8,7 +8,7 @@ module.exports = {
 	    },
 	    port:21883,
 	    url:'5.9.153.213',
-	    id:'tri_data/tlantic/+'
+	    id:'tlantic/poi/office'
     },
 
     queue:{
