@@ -1,2 +1,6 @@
 mosquitto_sub -h 5.9.153.213 -p 21883 -u mqttauth -P 1234 -t tlantic/poi/office
 mosquitto_sub -h 5.9.153.213 -p 21883 -u mqttauth -P 1234 -t tlantic/poi/debug
+
+
+http://www.rabbitmq.com/install-debian.html
+https://www.rabbitmq.com/management.html
