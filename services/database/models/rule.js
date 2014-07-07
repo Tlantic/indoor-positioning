@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 var RulesSchema = new Schema({
     name: {type: String, default: ''},
     description: {type: String, default: ''},
-    organitation: {type: Schema.Types.ObjectId, ref: 'Organization'},
+    organitationCode: {type: String, default: ''},
     priority: {type: Number, default: 0},
     restrictions: [{
     	variable: {type: Schema.Types.ObjectId, ref: 'RuleVar'},

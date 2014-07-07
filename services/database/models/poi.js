@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 
 var POISchema = new Schema({
     name: {type: String, default: ''},
-    organitation: {type: Schema.Types.ObjectId, ref: 'Organization'},
+    organitationCode: {type: String, default: ''},
     radius: {type: Number, default: 0.0},
     coordinates: [{latitude: Number, longitude: Number}],
     rules: [{type: Schema.Types.ObjectId, ref: 'Rules'}],

@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 var OrganizationSchema = new Schema({
     name: {type: String, default: ''},
     status: {type: String, default: ''},
+    code: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
 });
 

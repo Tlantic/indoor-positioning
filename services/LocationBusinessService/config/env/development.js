@@ -36,6 +36,12 @@ module.exports = {
     types:{
         PUSH_NOTIFICATIONS:'pushnotifications',
         EMAIL:'email'
+    },
+
+    default:{
+        defaultType:'AREA',
+        activeState:'A',
+        organitation:'EMP1'
     }
     
 

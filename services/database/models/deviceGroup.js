@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 
 var DeviceGroupSchema = new Schema({
     name: {type: String, default: ''},
-    organization: {type: Schema.Types.ObjectId, ref: 'Organization'},
+    organitationCode: {type: String, default: ''},
     status: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
 });

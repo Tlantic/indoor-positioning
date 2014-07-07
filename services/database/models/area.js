@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 var AreaSchema = new Schema({
     name: {type: String, default: ''},
     description: {type: String, default: ''},
-    organitation: {type: Schema.Types.ObjectId, ref: 'Organization'},
+    organitationCode: {type: String, default: ''},
     points: [{x: Number, y: Number}],
     status: {type: String, default: ''},
     code: {type: String, default: ''},

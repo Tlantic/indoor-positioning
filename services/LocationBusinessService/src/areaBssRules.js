@@ -6,53 +6,52 @@ var _ = require('lodash');
 var rulesEngine = require('./rulesEngine')
 var actions = require('./actions/actions')
 
-var defaultType = 'AREA'
-	activeState = 'A';
+var defaultType = config.default.defaultType,
+activeState = config.default.activeState;
 
 
 exports.resolveMsg = function(data) {
 	var d = when.defer();
 
-	var conditions= {
-		organitation: "53b2c57684c1ef0c0f4621e6",
+	var conditions = {
+		organitationCode: config.default.organitation,
 		attachType: defaultType,
-		attachCode: data.area,
+		attachCode: data.zone,
 		status: activeState
 	};
 
+
 	//GET ALL RULES FOR THIS AREA
 	db.find('rule', conditions).then(function(result) {
-		if(result && result.length>0){
-			
+		if (result && result.length > 0) {
+
 			var rules = result;
 			var rule, activeRule;
 
-			for(var i=0; i<rules.length;i++){
+			for (var i = 0; i < rules.length; i++) {
 				activeRule = rulesEngine.checkRule(data, rules[i]);
-				if(activeRule){
+				if (activeRule) {
 					rule = rules[i];
 					break;
 				}
 			}
-			console.log(data);
-			var device = {
-				mac:data.device
-			};
 		
-			actions.resolve(rule, device).then(function(result){
+			var device = {
+				mac: data.device
+			};
+
+			actions.resolve(rule, device).then(function(result) {
 				d.resolve(result);
-			}).catch(function(error){
+			}).catch(function(error) {
 				d.reject(error);
 			});
 		}
-		
+
 	}).
-	catch (function handleError(e) {
+	catch(function handleError(e) {
 		d.reject(e);
 	});
 
 	return d.promise;
 
 }
-
-
