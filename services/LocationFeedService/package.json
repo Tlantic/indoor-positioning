@@ -1,5 +1,5 @@
 {
-  "name": "FeedConsumer",
+  "name": "LocationFeedService",
   "version": "0.0.1",
   "description": "mqtt feed subscribe",
   "main": "mqttClient.js",

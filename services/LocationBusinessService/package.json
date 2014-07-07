@@ -1,0 +1,17 @@
+{
+  "name": "LocationBusinessService",
+  "version": "0.0.1",
+  "description": "Broker",
+  "main": "mqttClient.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andre Pinto",
+  "license": "ISC",
+  "dependencies": {
+    "request":"2.36.0",
+    "when":"3.2.3",
+    "lodash": "^2.4.1",
+    "node-rest-client":"1.0.0"
+  }
+}

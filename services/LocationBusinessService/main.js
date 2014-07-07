@@ -2,11 +2,11 @@ var consumer = require('./src/consumer');
 var config = require('./config/config');
 
 console.log("***************************");
-console.log("SENDER ACTION INIT     ");
+console.log("LOCATION BUSINESS INIT     ");
 console.log("***************************");
 
+consumer.queueConsumer(config.queue.routes[0].queue);
 
-consumer.queueConsumerSendPush(config.outputQueue.routes[0].queue);
 
 
 
