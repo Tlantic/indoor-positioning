@@ -54,7 +54,6 @@ function _find(conditions, fields, options, success, error) {
     try {
         DeviceGroup
             .find(conditions, fields, options)
-            .populate('organization')
             .exec(function(err, docs) {
                 if (err)
                     error(err);

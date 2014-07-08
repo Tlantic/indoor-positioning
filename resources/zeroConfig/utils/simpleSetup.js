@@ -29,6 +29,7 @@ var executeContent = function(raw) {
 	if (raw.data.length > 0) {
 		for(var i = 0; i < raw.data.length; i++) {
 			try {
+				console.log(httpOptions.path, JSON.stringify(raw.data[i]));
 				var req = http.request(httpOptions);
 				req.write(JSON.stringify(raw.data[i]));
 				req.end();
@@ -39,7 +40,6 @@ var executeContent = function(raw) {
 	}
 
 	console.log('simpleSetup:', 'Executed', raw.data.length, 'instructions');
-
 };
 
 exports.run = loadFile;

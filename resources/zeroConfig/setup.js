@@ -49,6 +49,9 @@ setTimeout(function() {
 setTimeout(function() {
 	loadActionFile('./_rule.js');
 }, 6000);
+setTimeout(function() {
+	loadActionFile('./_area.js');
+}, 7000);
 
 
 

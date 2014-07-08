@@ -6,27 +6,38 @@ var Q = require("q"),
 
 var _data = {};
 
-function parseData(item) {
+function getDeviceGroup(item) {
 	var deferred = Q.defer();
-	
-    // Get organization ID
-    client.post(
+	client.post(
     	'deviceGroup/find',
     	{
     		conditions: {
-    			name: item.deviceGroup
-    			//organization: item.deviceGroup_organization
+    			name: item.deviceGroup,
+    			organizationCode: item.deviceGroup_organizationCode
     		}
     	},
     	function(err, res, body) {
 			if (body.data.length === 0) {
 				item.deviceGroup = '';
-				return;
+				deferred.reject();
 			}
 
 			item.deviceGroup = body.data[0]._id;
 			deferred.resolve(item);
 		});
+	return deferred.promise;
+
+	var deferred = Q.defer();
+};
+
+function parseData(item) {
+	var deferred = Q.defer();
+
+    Q.all([
+    	getDeviceGroup(item)
+    ]).then(function() {
+    	deferred.resolve();
+    });
 
     return deferred.promise;
 }

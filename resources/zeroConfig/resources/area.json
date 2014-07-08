@@ -2,7 +2,7 @@
     "reset": {
         "endpoint": {
             "host": "localhost",
-            "path": "/database/organization",
+            "path": "/database/area",
             "port": "9000",
             "method": "DELETE"
         }
@@ -10,18 +10,16 @@
     "setup": {
         "endpoint": {
             "host": "localhost",
-            "path": "/database/organization",
+            "path": "/database/area",
             "port": "9000",
             "method": "POST"
         },
         "data": [{
-                "name": "Tlantic TST 01",
-                "code": "TLAN_01",
-                "status": "A"
-            },
-            {
-                "name": "Tlantic TST 02",
-                "code": "TLAN_02",
+                "name": "Testcase - Entrada em Loja",
+                "description": "Zona de testes para entrada em Loja",
+                "organizationCode": "TLAN_01",
+                "points": [],
+                "code": "1",
                 "status": "A"
             }
         ]

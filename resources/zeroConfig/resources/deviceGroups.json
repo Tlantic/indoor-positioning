@@ -16,22 +16,22 @@
         },
         "data": [{
                 "name": "General",
-                "organization": "Tlantic TST 01",
+                "organizationCode": "TLAN_01",
                 "status": "A"
             },
             {
                 "name": "Black List",
-                "organization": "Tlantic TST 01",
+                "organizationCode": "TLAN_01",
                 "status": "A"
             },
             {
                 "name": "General",
-                "organization": "Tlantic TST 02",
+                "organizationCode": "TLAN_02",
                 "status": "A"
             },
             {
                 "name": "Black List",
-                "organization": "Tlantic TST 02",
+                "organizationCode": "TLAN_02",
                 "status": "A"
             }
         ]

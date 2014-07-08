@@ -15,28 +15,25 @@
             "method": "POST"
         },
         "data": [{
-                "name": "Area - Navigation",
+                "name": "Area - Direction",
                 "group": "area",
-                "type": "area",
-                "status": "A"
+                "type": "STRING",
+                "status": "A",
+                "code": "DIRECTION"
             },
             {
-                "name": "Area - Distance",
+                "name": "Area - Zona",
                 "group": "area",
-                "type": "area",
-                "status": "A"
+                "type": "NUMBER",
+                "status": "A",
+                "code": "ZONE"
             },
             {
-                "name": "POI - Distance",
-                "group": "poi",
-                "type": "poi",
-                "status": "A"
-            },
-            {
-                "name": "Area - Name",
-                "group": "poi",
-                "type": "poi",
-                "status": "A"
+                "name": "Area - Device",
+                "group": "area",
+                "type": "STRING",
+                "status": "A",
+                "code": "DEV"
             }
         ]
     }

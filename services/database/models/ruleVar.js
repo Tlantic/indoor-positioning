@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 var RulesVarsSchema = new Schema({
     name: {type: String, default: ''},
     group: {type: String, default: ''},
-    type: {type: String, enum: ['area', 'poi'], default: ''},
+    type: {type: String, enum: ['NUMBER', 'STRING'], default: ''},
     status: {type: String, default: ''},
     code: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
@@ -15,6 +15,10 @@ var RulesVarsSchema = new Schema({
 RulesVarsSchema.path('name').validate(function(name){
     return name.length;
 }, 'Name cannot be blank');
+
+RulesVarsSchema.path('type').set(function(value){
+    return value.toUpperCase();
+});
 
 
 RulesVarsSchema.pre('save', function(next){

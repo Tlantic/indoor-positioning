@@ -10,36 +10,48 @@
     "setup": {
         "endpoint": {
             "host": "localhost",
-            "path": "/database/device",
+            "path": "/database/rule",
             "port": "9000",
             "method": "POST"
         },
         "data": [{
                 "name": "On enter in zone",
-                "type": "area",
                 "description": "Send a message when enter in area",
-                "organitation": "Tlantic TST 01",
+                "organitationCode": "TLAN_01",
                 "priority": 0,
                 "restrictions": [{
-                    "variable": "Area - Navigation",
+                    "variable": "Area - Direction",
                     "operator": "EQUAL",
                     "value": "in"
                 }],
-                "action": "SEND_PUSH_WELCOME",
+                "action": "SEND_PUSH_NOTIFICATION",
+                "attachType": "AREA",
+                "attachCode": "1",
+                "actionParams": [{
+                    "code": "MESSAGE",
+                    "name": "Mensagem",
+                    "value": "Bem-vindo ao Continente"
+                }],
                 "status": "A"
             },
             {
                 "name": "On exit from zone",
-                "type": "area",
                 "description": "Send a message when exit from area",
-                "organitation": "Tlantic TST 01",
+                "organitationCode": "TLAN_01",
                 "priority": 0,
                 "restrictions": [{
-                    "variable": "Area - Navigation",
+                    "variable": "Area - Direction",
                     "operator": "EQUAL",
                     "value": "out"
                 }],
-                "action": "SEND_PUSH_GOODBYE",
+                "action": "SEND_PUSH_NOTIFICATION",
+                "attachType": "AREA",
+                "attachCode": "1",
+                "actionParams": [{
+                    "code": "MESSAGE",
+                    "name": "Mensagem",
+                    "value": "Obrigado pela sua visita"
+                }],
                 "status": "A"
             }
         ]

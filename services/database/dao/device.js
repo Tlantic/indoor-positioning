@@ -7,12 +7,12 @@ function _save(data, success, error) {
 	try {
 		
 		if(!data.deviceGroup)
-			error('ERROR_DEVICE_GROUP_NOT_FOUND');
+			return error('ERROR_DEVICE_GROUP_NOT_FOUND');
 		
 		DeviceGroupDao.find({_id: data.deviceGroup}, undefined, undefined, function(result) {
 			
 			if(!result)
-				error('ERROR_DEVICE_GROUP_NOT_FOUND');
+				return error('ERROR_DEVICE_GROUP_NOT_FOUND');
 			
 			var device = new Device(data);
 

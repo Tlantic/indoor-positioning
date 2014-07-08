@@ -15,21 +15,16 @@
             "method": "POST"
         },
         "data": [{
-                "name": "Send PUSH Notification with Welcome",
-                "code": "SEND_PUSH_WELCOME",
+                "name": "Send PUSH Notification",
+                "code": "SEND_PUSH_NOTIFICATION",
                 "status": "A",
-                "content": "{'message':'welcome'}"
-            },
-            {
-                "name": "Send PUSH Notification with Goodbye",
-                "code": "SEND_PUSH_GOODBYE",
-                "status": "A",
-                "content": "{'message':'goodbye'}"
+                "actionParams": []
             },
             {
                 "name": "Send SMS Notification",
                 "code": "SEND_SMS",
-                "status": "A"
+                "status": "A",
+                "actionParams": []
             }
         ]
     }

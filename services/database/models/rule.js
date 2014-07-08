@@ -13,15 +13,15 @@ var RulesSchema = new Schema({
     	value: {type: String, default: ''}
     }],
     action: {type: Schema.Types.ObjectId, ref: 'RuleAction'},
-    status: {type: String, default: ''},
     attachType: {type: String, default: ''},
     attachCode: {type: String, default: ''},
-    _createdAt: {type:Date, default: Date.now},
     actionParams: [{
         code: {type: String, default: ''},
         name: {type: String, default: ''},
         value: {type: String, default: ''}
-    }]
+    }],
+    status: {type: String, default: ''},
+    _createdAt: {type:Date, default: Date.now}
 });
 
 

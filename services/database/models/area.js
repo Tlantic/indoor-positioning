@@ -7,8 +7,8 @@ var AreaSchema = new Schema({
     description: {type: String, default: ''},
     organitationCode: {type: String, default: ''},
     points: [{x: Number, y: Number}],
-    status: {type: String, default: ''},
     code: {type: String, default: ''},
+    status: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
 });
 

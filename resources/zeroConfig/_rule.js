@@ -6,27 +6,6 @@ var Q = require("q"),
 
 var _data = {};
 
-var getOrganization = function(item) {
-	var deferred = Q.defer();
-	client.post(
-    	'organization/find',
-    	{
-    		conditions: {
-    			name: item.organization
-    		}
-    	},
-    	function(err, res, body) {
-			if (body.data.length === 0) {
-				item.organization = '';
-				deferred.reject();
-			}
-
-			item.organization = body.data[0]._id;
-			deferred.resolve(item);
-		});
-	return deferred.promise;
-};
-
 var getAction = function(item) {
 	var deferred = Q.defer();
 	client.post(
@@ -112,7 +91,6 @@ function parseData(item) {
 	var deferred = Q.defer();
 
     Q.all([
-    	getOrganization(item),
     	getAction(item),
     	getRestrictions(item)
     ]).then(function() {
@@ -123,7 +101,6 @@ function parseData(item) {
 }
 
 function submit() {
-	console.log(_data);
 	simpleSetup.runContent(_data);
 }
 
@@ -144,6 +121,9 @@ exports.setup = function() {
 	Q.all(promises).then(
 		function onSuccess() {
 			submit();
+		},
+		function onError() {
+			console.error("Rule", "Failed");
 		}
 	);
 };
