@@ -14,7 +14,7 @@ var mongoose = require('mongoose'),
 function _save(data, success, error) {
 	try {
 		
-		OrganizationDao.find({_id:data.organization}, undefined, undefined, function(result) {
+		OrganizationDao.find({organizationCode:data.organizationCode}, undefined, undefined, function(result) {
 	    	if(!result)
 	    		error("ORGANIZATION_NOT_FOUND");
 	    	
