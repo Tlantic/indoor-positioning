@@ -41,7 +41,7 @@ module.exports = {
     default:{
         defaultType:'AREA',
         activeState:'A',
-        organitation:'EMP1'
+        organitation:'TLAN_01'
     }
     
 
