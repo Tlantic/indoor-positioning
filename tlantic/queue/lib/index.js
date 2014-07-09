@@ -55,7 +55,7 @@ exports.send = function(channel, msg, options) {
 	if (result)
 		d.resolve(result);
 	else
-		d.reject(result);
+		d.resolve(result);
 
 	return d.promise;
 };
