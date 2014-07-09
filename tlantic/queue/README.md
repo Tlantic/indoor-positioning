@@ -11,23 +11,22 @@ Provides an api for manipulating queues
             url: config.queue.url
         }
 
+        //CREATE NEW CONNECTION
         var conn = tlanticQueue.connection(options);
 
-        conn.then(function(channel){
-            for(var i=0;i<100000;i++){
-                var dd= "a:"+i;
-                var resp = {'data':dd};
+        //SEND
+        conn.then(function(channel){           
+                var resp = {'data':'aaa'};
                 tlanticQueue.send(channel, JSON.stringify(resp), options).then(function(result){
                 console.log(result);
-            }).catch(function(err){
-                console.log(err);
-            }); 
-            }
+            })); 
             
         });
 
+        //CREATE NEW CONNECTION
         var conn2 = tlanticQueue.connection(options);
 
+        //CONSUMER
         conn2.then(function(channel) {
             var opts = {
                 url: config.queue.url,
@@ -86,11 +85,11 @@ Provides an api for manipulating queues
 ```js
    Rabbit Queue Message Consumer
     
-    @method consumer
-    @param channel {Object} queue channel
-    @param options {Object} queue options
-    @param action {Function} queue consumer action
-    @returns null
+    method consumer
+    param channel {Object} queue channel
+    param options {Object} queue options
+    param action {Function} queue consumer action
+    returns null
 
     var opts = {
         url: '',
