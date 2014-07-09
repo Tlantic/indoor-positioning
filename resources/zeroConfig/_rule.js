@@ -6,27 +6,6 @@ var Q = require("q"),
 
 var _data = {};
 
-var getAction = function(item) {
-	var deferred = Q.defer();
-	client.post(
-    	'ruleAction/find',
-    	{
-    		conditions: {
-    			code: item.action
-    		}
-    	},
-    	function(err, res, body) {
-			if (body.data.length === 0) {
-				item.action = '';
-				deferred.reject();
-			}
-
-			item.action = body.data[0]._id;
-			deferred.resolve(item);
-		});
-	return deferred.promise;
-};
-
 var getRestrictions = function(item) {
 	var deferred = Q.defer();
 
@@ -91,7 +70,6 @@ function parseData(item) {
 	var deferred = Q.defer();
 
     Q.all([
-    	getAction(item),
     	getRestrictions(item)
     ]).then(function() {
     	deferred.resolve();

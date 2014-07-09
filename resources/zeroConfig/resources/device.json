@@ -15,10 +15,10 @@
             "method": "POST"
         },
         "data": [{
-                "name": "Samsung Testes Tlantic 01",
-                "macAddr": "",
-                "uuid": "",
-                "os": "Android 4.4.2",
+                "name": "samsung",
+                "macAddr": "48:52:3F:0F:B7:66",
+                "uuid": "APA91bEOrSioSSEt7oPhln0rkWEVUcwEVxgg295TAcCqQOXOKCCZdFN0GSxwaWhA2L38wuA6H90ly1iDqnAocLI9cP0r1kkz5FlbZFqTOdNgMmZHa9IfiqiMCTtXtsTrk22fEY2mEO_f-lh1zt_cPHvQVLK9Oaq62EQPivYEZrCnMmhWu4KqWOY",
+                "os": "ANDROID",
                 "lastAccessDate": "",
                 "deviceGroup": "General",
                 "deviceGroup_organizationCode": "TLAN_01",

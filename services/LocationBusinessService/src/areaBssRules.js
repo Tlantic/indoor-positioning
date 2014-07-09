@@ -46,7 +46,9 @@ exports.resolveMsg = function(data) {
 				d.reject(error);
 			});
 		}
-
+		else {
+			d.resolve();
+		}
 	}).
 	catch(function handleError(e) {
 		d.reject(e);

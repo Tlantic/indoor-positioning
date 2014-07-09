@@ -33,25 +33,25 @@ setTimeout(function() {
 
 setTimeout(function() {
 	loadActionFile('./_ruleOperators.js');
-}, 1000);
-setTimeout(function() {
-	loadActionFile('./_ruleVars.js');
 }, 2000);
 setTimeout(function() {
-	loadActionFile('./_organization.js');
-}, 3000);
-setTimeout(function() {
-	loadActionFile('./_deviceGroups.js');
+	loadActionFile('./_ruleVars.js');
 }, 4000);
 setTimeout(function() {
-	loadActionFile('./_device.js');
-}, 5000);
-setTimeout(function() {
-	loadActionFile('./_rule.js');
+	loadActionFile('./_organization.js');
 }, 6000);
 setTimeout(function() {
+	loadActionFile('./_deviceGroups.js');
+}, 8000);
+setTimeout(function() {
+	loadActionFile('./_device.js');
+}, 10000);
+setTimeout(function() {
+	loadActionFile('./_rule.js');
+}, 12000);
+setTimeout(function() {
 	loadActionFile('./_area.js');
-}, 7000);
+}, 14000);
 
 
 
