@@ -23,6 +23,12 @@ exports.queueConsumer = function(queueName) {
 
 	}
 
-	tlanticQueue.queueConsumer(options, doWork);
+	//tlanticQueue.queueConsumer(options, doWork);
+
+	var conn = tlanticQueue.connection(options);
+
+	conn.then(function(channel) {
+		tlanticQueue.consumer(channel, options, doWork);
+	});
 }
 
