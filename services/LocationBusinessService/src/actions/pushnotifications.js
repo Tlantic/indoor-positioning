@@ -7,7 +7,7 @@ var	when = require('when'),
     url = require('url');
 
 
-exports.resolve = function(device, rule){
+exports.resolve = function(device, rule, channel){
 	var d = when.defer();
 
 	var conditions ={
@@ -34,13 +34,22 @@ exports.resolve = function(device, rule){
 			url: config.outputQueue.url
 		}
 
-		tlanticQueue.queueSendToExchanger(JSON.stringify(message), options,
+/*		tlanticQueue.queueSendToExchanger(JSON.stringify(message), options,
 			function success(){
 				console.log('SET PUSH MESSAGES IN QUEUE');
 				d.resolve(message);
 			}, function error(e){
 				d.reject(error);
-		});
+		});*/
+
+		
+			tlanticQueue.send(channel, JSON.stringify(message), options).then(function(result) {
+				
+					console.log('SET PUSH MESSAGES IN QUEUE');
+					d.resolve(message);
+				
+			});
+
 		
 		
 

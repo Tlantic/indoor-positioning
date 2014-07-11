@@ -3,3 +3,4 @@ jobs/**/node_modules
 services/**/node_modules
 resources/**/node_modules
 tlantic/**/node_modules
+resources/Monit

@@ -5,6 +5,8 @@ var tlanticQueue = require('tlantic-queue');
 
 exports.queueConsumer = function(queueName) {
 
+	var channelIn, channelOut;
+
 	var options = {
 		url: config.queue.url,
 		queue: queueName,
@@ -17,7 +19,7 @@ exports.queueConsumer = function(queueName) {
 			mymsg = msg;
 		var body = JSON.parse(msg.content.toString());
 		
-		areaBssRules.resolveMsg(body).then(function(){
+		areaBssRules.resolveMsg(body, channelOut).then(function(){
 			mych.ack(mymsg);
 		});
 
@@ -25,10 +27,16 @@ exports.queueConsumer = function(queueName) {
 
 	//tlanticQueue.queueConsumer(options, doWork);
 
-	var conn = tlanticQueue.connection(options);
+	var connIn = tlanticQueue.connection(options);
 
-	conn.then(function(channel) {
-		tlanticQueue.consumer(channel, options, doWork);
+	var connOut = tlanticQueue.connection(options);
+
+	connIn.then(function(channel) {
+		channelIn = channel;
+		connOut.then(function(channel2) {
+			channelOut = channel2;
+			tlanticQueue.consumer(channelIn, options, doWork);
+		});
 	});
 }
 

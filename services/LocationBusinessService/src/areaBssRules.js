@@ -10,7 +10,7 @@ var defaultType = config.default.defaultType,
 activeState = config.default.activeState;
 
 
-exports.resolveMsg = function(data) {
+exports.resolveMsg = function(data, channelOut) {
 	var d = when.defer();
 
 	var conditions = {
@@ -40,7 +40,7 @@ exports.resolveMsg = function(data) {
 				mac: data.device
 			};
 
-			actions.resolve(rule, device).then(function(result) {
+			actions.resolve(rule, device, channelOut).then(function(result) {
 				d.resolve(result);
 			}).catch(function(error) {
 				d.reject(error);
