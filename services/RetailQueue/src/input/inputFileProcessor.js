@@ -6,8 +6,6 @@ var fl  = require('tlantic-file');
    tlanticQueue = require('tlantic-queue');
 
 
-
-
 exports.process = function() {
 	fl.getDirFiles(config.dir.input).then(function(result){
 		var files = result;

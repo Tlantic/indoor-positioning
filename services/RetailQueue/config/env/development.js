@@ -18,6 +18,26 @@ module.exports = {
         out:'/home/vagrant/work/files/out/'
     },
 
-    modes:['read', 'send']
+    modes:['read', 'send', 'consumer', 'external'],
+
+    mqtt: {
+    	user: {
+	        username: 'mqttauth',
+	        password: '1234'
+	    },
+	    port:21883,
+	    url:'5.9.153.213',
+	    id:'tlantic/uc2/query'
+    },
+
+    mqttResponse: {
+        user: {
+            username: 'mqttauth',
+            password: '1234'
+        },
+        port:21883,
+        url:'5.9.153.213',
+        id:'tlantic/uc2/response_closer'
+    }
 
 };
