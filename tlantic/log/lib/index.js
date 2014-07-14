@@ -1,15 +1,25 @@
-var winston = require('winston');
+var winston = require('winston'),
+	Logstash = require('winston-logstash').Logstash;
+
+
 
 var internals = {};
 
 internals.types = {
 	console:new(winston.transports.Console)(),
-	file:new(winston.transports.File)({filename: 'main.log'})
+	file:new(winston.transports.File)({filename: 'main.log'}),
+	logstash: new(Logstash)({
+    port: 5000,
+    node_name: 'my node name',
+    host: '127.0.0.1'
+  })
 }
 
 internals.getLogger = function(types){
+
 	var transports = [];
 	if(!types){
+		transports.push(internals.types.logstash);
 		transports.push(internals.types.console);
 	}
 	else {
