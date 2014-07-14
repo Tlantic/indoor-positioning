@@ -11,7 +11,8 @@ var TransactionSchema = new Schema({
     poi: {type:Object},
     level: {type: String, default: ''},
     organizationCode: {type: String, default: ''},
-    _createdAt: {type:Date, default: Date.now}
+    _createdAt: {type:Date, default: Date.now},
+    result:{type:Object}
 });
 
 

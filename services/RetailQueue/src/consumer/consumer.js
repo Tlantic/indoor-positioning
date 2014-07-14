@@ -1,10 +1,13 @@
 var log = require('tlantic-log'),
  	 db = require('tlantic-db'),
  	 mqtt = require('mqtt'),
- 	 config = require('../../config/config');
+ 	 config = require('../../config/config'),
+ 	 when = require('when'),
+ 	 responseRules = require('./responseRules');
 
 exports.process = function(){
-	
+	var self = this;
+
 	var obj = {
 		username: config.mqttResponse.user.username,
 		password: config.mqttResponse.user.password
@@ -17,8 +20,15 @@ exports.process = function(){
 
 			var resp = JSON.parse(message);
 
-			console.log(resp);
+			responseRules.work(resp).then(function(result){
+				log.info('ok');
+			}).catch(function(err){
+				log.error(err);
+			});
 
 		});
 
 };
+
+
+
