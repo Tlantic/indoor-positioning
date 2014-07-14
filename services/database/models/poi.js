@@ -4,12 +4,13 @@ var mongoose = require('mongoose'),
 
 var POISchema = new Schema({
     name: {type: String, default: ''},
-    organitationCode: {type: String, default: ''},
+    organizationCode: {type: String, default: ''},
     radius: {type: Number, default: 0.0},
     coordinates: [{latitude: Number, longitude: Number}],
-    rules: [{type: Schema.Types.ObjectId, ref: 'Rules'}],
     status: {type: String, default: ''},
-    code: {type: String, default: ''},
+    internalCode: {type: String, default: ''},
+    type: {type: String, enum: ['POS', 'PROMO', 'ZONE'], default: ''},
+    externalCode: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
 });
 

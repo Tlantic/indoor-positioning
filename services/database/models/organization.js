@@ -6,6 +6,7 @@ var OrganizationSchema = new Schema({
     name: {type: String, default: ''},
     status: {type: String, default: ''},
     code: {type: String, default: ''},
+    externalCode: {type: String, default: ''},
     _createdAt: {type:Date, default: Date.now}
 });
 
