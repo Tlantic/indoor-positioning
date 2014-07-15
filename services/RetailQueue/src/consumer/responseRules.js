@@ -13,15 +13,17 @@ exports.work = function(resp){
 	
 	var findTrans = db.findById('transaction', msg.id);
 
-	findTrans.then(function(trs){
-		if(trs.length!==1)
+	findTrans.then(function(trans){
+		if(trans.length!==1)
 			return d.reject('TRANSACTION_NOT_FOUND');
 		
+		var trs = trans[0];
+
 		var updData={};
 		
 		//IF DEVICE NOT FOUND CHANGE TRANSACTION STATE
 		if(msg.dev.length===0){
-			var nextLevel = getNextLeve(trs.level);
+			var nextLevel = getNextLevel(trs.level);
 			if(nextLevel==="X")
 				updData = {level:nextLevel};
 			else
@@ -46,7 +48,7 @@ exports.work = function(resp){
 	return d.promise;
 }
 
-function getNextLeve(level){
+function getNextLevel(level){
 	if(level==='A')
 		return 'B';
 	if(level==='B')

@@ -9,18 +9,30 @@ exports.getResponse = function(response) {
 }
 
 exports.isValid = function(response) {
-	if (!response)
+	console.log(response);
+	if (!response){
+		console.log('1');
 		return false;
-	if (!response.ant)
+	}
+	if (response.ant===undefined){
 		return false;
-	if (!response.rssi)
+	}
+	if (response.rssi===undefined){
+		console.log('3');
 		return false;
-	if (!response.id)
+	}
+	if (response.id===undefined){
+		console.log('4');
 		return false;
-	if (!response.ts)
+	}
+	if (response.ts===undefined){
+		console.log('5');
 		return false;
-	if (!response.dev)
+	}
+	if (response.dev===undefined){
+		console.log('6');
 		return false;
+	}
 
 	return true;
 }

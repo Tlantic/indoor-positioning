@@ -29,8 +29,7 @@ module.exports = {
 	    url:'5.9.153.213',
 	    id:'tlantic/uc2/query'
     },
-
-    mqttResponse: {
+    mqttResponse: { 
         user: {
             username: 'mqttauth',
             password: '1234'
