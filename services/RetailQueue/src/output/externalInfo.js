@@ -25,7 +25,7 @@ exports.process = function() {
 		_putMessageOnBroker(body).then(function(){
 			mych.ack(mymsg);
 		}).catch(function(){
-			
+
 		});
 
 
@@ -50,7 +50,7 @@ function _putMessageOnBroker(msg) {
 			password: config.mqtt.user.password
 		};
 
-		console.log(msg);
+	
 
 		if (!client){
 			client = mqtt.createClient(config.mqtt.port, config.mqtt.url, obj);

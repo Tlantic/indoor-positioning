@@ -9,7 +9,7 @@ exports.getResponse = function(response) {
 }
 
 exports.isValid = function(response) {
-	console.log(response);
+	
 	if (!response){
 		console.log('1');
 		return false;
