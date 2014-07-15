@@ -71,7 +71,11 @@ exports.save = function(collection, data, connection) {
 		method: 'POST',
 		params: data
 	}, function(body, res) {
-		d.resolve(JSON.parse(body).data);
+		var rs = JSON.parse(body);
+		if(rs.status==='ERROR')
+			d.reject(JSON.parse(body).data);
+		else
+			d.resolve(JSON.parse(body).data);
 	}, function(e) {
 		d.reject(e);
 	});
@@ -91,7 +95,11 @@ exports.update = function(collection, conditions, data,  connection) {
 			data: data
 		}
 	}, function(body, res) {
-		d.resolve(JSON.parse(body).data);
+		var rs = JSON.parse(body);
+		if(rs.status==='ERROR')
+			d.reject(JSON.parse(body).data);
+		else
+			d.resolve(JSON.parse(body).data);
 	}, function(e) {
 		d.reject(e);
 	});
@@ -111,7 +119,11 @@ exports.delete = function(collection, conditions, connection) {
 			conditions: conditions || {}
 		}
 	}, function(body, res) {
-		d.resolve(JSON.parse(body).data);
+		var rs = JSON.parse(body);
+		if(rs.status==='ERROR')
+			d.reject(JSON.parse(body).data);
+		else
+			d.resolve(JSON.parse(body).data);
 	}, function(e) {
 		d.reject(e);
 	});
@@ -130,7 +142,11 @@ exports.findById = function(collection, id, connection) {
 	internals.request(connection, {
 		method: 'GET'
 	}, function(body, res) {
-		d.resolve(JSON.parse(body).data);
+		var rs = JSON.parse(body);
+		if(rs.status==='ERROR')
+			d.reject(JSON.parse(body).data);
+		else
+			d.resolve(JSON.parse(body).data);
 	}, function(e) {
 		d.reject(e);
 	});
@@ -156,7 +172,11 @@ exports.find = function(collection, conditions, fields, options, connection) {
 
 		}
 	}, function(body, res) {
-		d.resolve(JSON.parse(body).data);
+		var rs = JSON.parse(body);
+		if(rs.status==='ERROR')
+			d.reject(JSON.parse(body).data);
+		else
+			d.resolve(JSON.parse(body).data);
 	}, function(e) {
 		d.reject(e);
 	});
