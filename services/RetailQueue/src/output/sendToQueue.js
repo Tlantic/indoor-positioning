@@ -2,20 +2,28 @@ var tlanticQueue = require('tlantic-queue'),
 	config = require('../../config/config'),
 	db = require('tlantic-db'),
 	when = require('when'),
-	log = require('tlantic-log');
+	log = require('tlantic-log'),
+	_ = require('lodash');
 
-var conn;
-var options = {
-	key: config.queue.routes[0].key,
-	exchanger: config.queue.exchange,
-	url: config.queue.url
-}
+var conn,
+	options = {
+		key: config.queue.routes[0].key,
+		exchanger: config.queue.exchange,
+		url: config.queue.url
+	},
+	params=[];
 
 function _init(){
 	var d = when.defer();
 	var conn = tlanticQueue.connection(options);
 	conn.then(function(channel) {
-		d.resolve(channel);
+		var prms = db.find('parameter', {code: {$in: ['RETAIL_QUEUE_LEVEL_A', 'RETAIL_QUEUE_LEVEL_B', 'RETAIL_QUEUE_LEVEL_C']}});
+		prms.then(function(result){
+			params = result;
+			d.resolve(channel);
+		}).catch(function(e){
+			d.reject('ERROR_ON_GET_PARAMS');
+		});
 	});
 	return d.promise;
 
@@ -47,11 +55,11 @@ function _send(trs, channel) {
 
  	_createMsg(trs).then(function(msg){
  		tlanticQueue.send(channel, JSON.stringify(msg), options).then(function(result) {
-			db.update('transaction', {_id: trs._id}, {	status: 'S', level:'B'	});
+			db.update('transaction', {_id: trs._id}, {	status: 'S'	});
 			log.info('ON_PUT_MESSAGE_IN_QUEUE');
 		});
  	}).catch(function(error){
- 		log.error('ERROR_ON_PUT_MESSAGE_IN_QUEUE')
+ 		log.error('ERROR_ON_PUT_MESSAGE_IN_QUEUE');
  	});
 
 
@@ -61,21 +69,20 @@ function _createMsg(data){
 	try{
 		var d = when.defer();
 
-		var gap = 0;
+		var gap = parseInt(_.where(params, { 'code': 'RETAIL_QUEUE_LEVEL_A' })[0].value);
 
 		if(data.level==='B')
-			gap = 15;
+			gap = parseInt(_.where(params, { 'code': 'RETAIL_QUEUE_LEVEL_B' })[0].value);
 		if(data.level==='C')
-			gap = 30;
-		if(data.level==='D')
-			gap = 45;
-
+			gap = parseInt(_.where(params, { 'code': 'RETAIL_QUEUE_LEVEL_C' })[0].value);
+	
+		
 		var findOrg = db.find('organization', {code: data.organizationCode});
 
 		findOrg.then(function(result){
 			
 			if(result.length!==1)
-				d.reject();
+				return d.reject();
 			else{	
 				var msg = {
 					id : data._id,
