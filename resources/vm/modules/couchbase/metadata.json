@@ -1,0 +1,28 @@
+{
+  "name": "thias-couchbase",
+  "version": "0.1.1",
+  "source": "git://github.com/thias/puppet-couchbase",
+  "author": "Matthias Saou",
+  "license": "Apache 2.0",
+  "summary": "Couchbase module",
+  "description": "Install and enable Couchbase.",
+  "project_page": "https://github.com/thias/puppet-couchbase",
+  "dependencies": [
+
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "ChangeLog": "1e9c617034f337d47600a423514f3e7f",
+    "LICENSE": "99219472697a01561e7630d63aaecdc1",
+    "Modulefile": "133c6017df4be426ba52a76e08ce4f46",
+    "README.md": "66c1ebe091fd24e1a0e027469de63934",
+    "manifests/install.pp": "50271ee7f79aeae55bbb6403a4e342ad",
+    "manifests/params.pp": "e720fc19f546f126462917c37b732192",
+    "manifests/server.pp": "d68c82bd686246cae885c0052e72fe5d",
+    "templates/gentoo/couchbase-server-conf.d.erb": "0cebe715699b89cfbc37d280320ec8e8",
+    "templates/gentoo/couchbase-server-init.d.erb": "4e410e55647c9008e5c140525258aa6b",
+    "tests/server.pp": "ce5c052d33e7f412f2b95faeea0c5f02"
+  }
+}
