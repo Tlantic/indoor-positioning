@@ -1,0 +1,4 @@
+#!/bin/sh
+echo 'messenger npm install...'
+sudo ../services/MessengerService npm install
+echo 'messenger npm completed'

@@ -1,0 +1,4 @@
+#!/bin/sh
+echo 'webserver npm install...'
+sudo npm install ../server
+echo 'webserver npm completed'
