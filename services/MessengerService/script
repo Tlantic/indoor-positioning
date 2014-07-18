@@ -1,2 +1,3 @@
 #!/bin/sh
-sudo npm install
+echo 'init'
+sudo npm install services/MessengerService
