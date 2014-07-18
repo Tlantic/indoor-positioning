@@ -9,7 +9,11 @@
   "author": "Andre Pinto",
   "license": "ISC",
   "dependencies": {
-    "when":"3.2.3",
+    "when": "3.2.3",
     "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-shell":"0.7.0"
   }
 }

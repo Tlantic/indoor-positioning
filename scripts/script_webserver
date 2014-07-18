@@ -1,4 +1,4 @@
 #!/bin/sh
-echo 'webserver npm install...'
-sudo npm install ../server
-echo 'webserver npm completed'
+echo '> MessagerService Run'
+sudo ./../services/MessengerService/script
+echo '> MessagerService end'
