@@ -1,4 +1,4 @@
 #!/bin/sh
-echo '> MessagerService Run'
-sudo ./../services/MessengerService/script
-echo '> MessagerService end'
+echo '> MenssegerService Run'
+cd ../services/MessengerService/script; ./script
+echo '> MessengerService end'

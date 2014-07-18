@@ -1,4 +1,2 @@
 #!/bin/sh
-echo 'messenger npm install...'
-sudo  npm install
-echo 'messenger npm completed'
+sudo npm install
