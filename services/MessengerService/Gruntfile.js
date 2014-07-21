@@ -11,12 +11,29 @@ module.exports = function(grunt) {
                 },
                 command: 'ls'
             }
+        },
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc',
+                reporter: require('jshint-stylish')
+            },
+            all: [
+                'Gruntfile.js',
+                '{,*/}*.js'
+            ],
+            test: {
+                options: {
+                    jshintrc: 'test/.jshintrc'
+                },
+                src: ['test/spec/{,*/}*.js']
+            }
         }
 
     });
 
     //Load NPM task
     grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
 
     //Making grunt default to force in order not to break the project.
@@ -24,5 +41,5 @@ module.exports = function(grunt) {
 
 
     //Test task.
-    grunt.registerTask('build', ['shell']);
+    grunt.registerTask('build', ['jshint:all']);
 };

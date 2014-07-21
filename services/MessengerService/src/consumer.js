@@ -1,7 +1,9 @@
+'use strict';
+
 var basename = require('path').basename;
 var config = require('../config/config');
 var tlanticQueue = require('tlantic-queue');
-var pushnotificationAction = require('./actions/pushnotifications')
+var pushnotificationAction = require('./actions/pushnotifications');
 
 
 exports.queueConsumerSendPush = function(queueName) {
@@ -28,4 +30,4 @@ exports.queueConsumerSendPush = function(queueName) {
 	}
 
 	tlanticQueue.queueConsumer(options, doWork);
-}
+};
