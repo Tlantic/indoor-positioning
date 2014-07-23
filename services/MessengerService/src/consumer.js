@@ -24,7 +24,7 @@ exports.queueConsumerSendPush = function(queueName) {
 			console.log(result);
 			mych.ack(mymsg);
 		}).catch(function(error){
-			console.log(error);
+			mych.ack(mymsg);
 		});
 
 	}

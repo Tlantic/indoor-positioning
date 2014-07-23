@@ -1,4 +1,4 @@
-var subscribe = require('./src/subscribe2');
+var subscribe = require('./src/subscribe');
 
 console.log("***************************");
 console.log("LOCATION FEED SERVICE INIT 		");
