@@ -16,7 +16,7 @@ function _save(data, success, error) {
 		
 		OrganizationDao.find({organizationCode:data.organizationCode}, undefined, undefined, function(result) {
 	    	if(!result)
-	    		error("ORGANIZATION_NOT_FOUND");
+	    		return error("ORGANIZATION_NOT_FOUND");
 	    	
 	    	var vOrganization = new Organization(result[0]);
 	    	getRuleAction(vOrganization)
@@ -41,7 +41,6 @@ function _save(data, success, error) {
 
 		function insert(vOrganization, vAction){
 
-			data.organitation=vOrganization;
 			data.action=vAction;
 			var rule = new Rule(data);
 			rule.save(function(err, dv) {
